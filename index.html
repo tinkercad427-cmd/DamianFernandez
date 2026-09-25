@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopZone | Carrito de Compras</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- FONDO ANIMADO -->
+    <div class="background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🛒
+            </div>
+
+            <div class="logo-name">
+                <span>SHOP</span>
+                <strong>ZONE</strong>
+            </div>
+
+        </div>
+
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#carrito">Carrito</a>
+        </nav>
+
+
+        <button
+            class="cart-button"
+            id="abrirCarrito"
+            aria-label="Abrir carrito"
+        >
+            🛒
+            <span id="contadorCarrito">0</span>
+        </button>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+
+        <div class="hero-text">
+
+            <span class="tag">
+                🛍️ TIENDA ONLINE
+            </span>
+
+            <h1>
+                Todo lo que buscas,
+                <span>en un solo lugar.</span>
+            </h1>
+
+            <p>
+                Descubrí nuestros productos, agregalos al carrito
+                y realizá tu compra de manera rápida y sencilla.
+            </p>
+
+            <a
+                href="#productos"
+                class="hero-button"
+            >
+                Explorar productos →
+            </a>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="shopping-bag">
+                🛍️
+            </div>
+
+            <div class="floating-item item-1">
+                🎧
+            </div>
+
+            <div class="floating-item item-2">
+                👟
+            </div>
+
+            <div class="floating-item item-3">
+                💻
+            </div>
+
+            <div class="floating-item item-4">
+                📱
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTOS -->
+    <main id="productos">
+
+        <div class="section-title">
+
+            <div>
+
+                <span class="small-title">
+                    CATÁLOGO
+                </span>
+
+                <h2>
+                    Productos destacados
+                </h2>
+
+            </div>
+
+            <div class="product-count">
+                <span id="cantidadProductos">8</span>
+                productos
+            </div>
+
+        </div>
+
+
+        <div
+            class="products-grid"
+            id="productosContainer"
+        >
+            <!-- Productos generados por JavaScript -->
+        </div>
+
+    </main>
+
+
+    <!-- OVERLAY -->
+    <div
+        class="overlay"
+        id="overlay"
+    ></div>
+
+
+    <!-- CARRITO -->
+    <aside
+        class="cart-panel"
+        id="carrito"
+    >
+
+        <div class="cart-header">
+
+            <div>
+
+                <span class="small-title">
+                    TU COMPRA
+                </span>
+
+                <h2>
+                    Mi carrito 🛒
+                </h2>
+
+            </div>
+
+            <button
+                class="close-cart"
+                id="cerrarCarrito"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="cart-items"
+            id="carritoItems"
+        >
+        </div>
+
+
+        <!-- CARRITO VACÍO -->
+        <div
+            class="empty-cart"
+            id="carritoVacio"
+        >
+
+            <div class="empty-icon">
+                🛒
+            </div>
+
+            <h3>
+                Tu carrito está vacío
+            </h3>
+
+            <p>
+                Agregá algunos productos para comenzar tu compra.
+            </p>
+
+            <button id="seguirComprando">
+                Ver productos
+            </button>
+
+        </div>
+
+
+        <!-- FOOTER DEL CARRITO -->
+        <div class="cart-footer">
+
+            <div class="total-row">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="totalCarrito">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <button
+                class="checkout-button"
+                id="finalizarCompra"
+            >
+                <span>
+                    Finalizar compra
+                </span>
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+
+            <button
+                class="clear-button"
+                id="vaciarCarrito"
+            >
+                Vaciar carrito
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ==========================================
+         MODAL DE COMPRA FINALIZADA
+    =========================================== -->
+
+    <div
+        class="modal-overlay"
+        id="modalCompra"
+    >
+
+        <div class="purchase-modal">
+
+            <button
+                class="modal-close"
+                id="cerrarModal"
+            >
+                ×
+            </button>
+
+
+            <div class="success-animation">
+
+                <div class="success-circle">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <span class="modal-tag">
+                COMPRA COMPLETADA
+            </span>
+
+
+            <h2>
+                ¡Compra finalizada!
+            </h2>
+
+
+            <p>
+                Tu pedido fue registrado correctamente.
+                ¡Gracias por comprar en ShopZone! 🛍️
+            </p>
+
+
+            <div class="purchase-summary">
+
+                <div>
+
+                    <span>
+                        Estado
+                    </span>
+
+                    <strong>
+                        ✓ Confirmado
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Total pagado
+                    </span>
+
+                    <strong id="modalTotal">
+                        $0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="modal-main-button"
+                id="continuarComprando"
+            >
+                Seguir comprando →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- NOTIFICACIÓN -->
+
+    <div
+        class="notification"
+        id="notification"
+    >
+
+        <span class="notification-icon">
+            ✓
+        </span>
+
+        <div>
+
+            <strong>
+                Producto agregado
+            </strong>
+
+            <p id="notificationText">
+                Producto agregado al carrito
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🛒 SHOPZONE
+        </div>
+
+        <p>
+            Proyecto de carrito de compras
+            · HTML · CSS · JavaScript
+        </p>
+
+        <div class="footer-tech">
+            💾 LocalStorage
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
